@@ -76,4 +76,52 @@ class CLayout extends CI_Controller {
 		$data['page']='vKeranjang';
 		$this->load->view('vLayout', $data);
 	}
+	
+	function ubahKeranjang() {
+		$data['kategori']=$this->mKategori->getDataKategori();
+
+		$rowid=$this->input->post('rowid');
+		$qty=$this->input->post('qty');
+		
+		$arrayupdate = array (
+			'rowid'=>$rowid,
+			'qty'=>$qty
+		);
+		$this->cart->update($arrayupdate);
+		
+		$data['page']='vKeranjang';
+		$this->load->view('vLayout', $data);
+	}
+	
+	function hapusKeranjang() {
+		$data['kategori']=$this->mKategori->getDataKategori();
+
+		$rowid=$this->input->post('rowid');
+		$qty=$this->input->post('qty');
+		
+		$arraydelete = array (
+			'rowid'=>$rowid,
+			'qty'=>0
+		);
+		$this->cart->update($arraydelete);
+		
+		$data['page']='vKeranjang';
+		$this->load->view('vLayout', $data);
+	}
+	
+	function batalBelanja() {
+		$data['kategori']=$this->mKategori->getDataKategori();
+
+		$this->cart->destroy();
+
+		$data['page']='vKeranjang';
+		$this->load->view('vLayout', $data);
+	}
+	
+	function checkout() {
+		$data['kategori']=$this->mKategori->getDataKategori();
+
+		$data['page']='vCheckout';
+		$this->load->view('vLayout', $data);
+	}
 }

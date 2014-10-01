@@ -8,7 +8,7 @@
 					<?php if($value->diskon>0) echo '<div class="promo">SALE '.$value->diskon.'%</div>'; ?>
 					<img src="<?php echo base_url().'assets/images/galeri/'.$value->foto.'.jpg'; ?>">
 					<h1><?php echo $value->nama; ?></h1>
-					<p>Rp. <?php echo $value->harga; ?></p>
+					<p>Rp. <?php echo number_format($value->harga, 0, '.', ','); ?></p>
 				</a>
 			</div>
 	<?php

@@ -27,7 +27,7 @@
 					<h1>Dashboard</h1>
 					<?php
 						foreach ($dashboard->result() as $value) {
-							echo '<li><a href="#">'.$value->nama.'</a></li>';
+							echo '<li><a href="'.site_url().'/'.$value->link.'">'.$value->nama.'</a></li>';
 						}
 					?>
 				</ul>
